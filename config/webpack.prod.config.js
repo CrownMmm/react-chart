@@ -12,7 +12,7 @@ const webpackConfigProd = {
             protectWebpackAssets: true,
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].[fullhase:4].css',
+            filename: '[name].[fullhash:4].css',
         }),
         new HtmlWebpackPlugin({
             inject: 'body',

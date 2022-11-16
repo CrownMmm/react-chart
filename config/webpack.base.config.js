@@ -7,7 +7,7 @@ const webpackBaseConfig = {
     entry: path.join(__dirname, '../src/index.jsx'),
     output: {
         path: path.join(__dirname, '../dist'),
-        filename: '[name].[fullhase:4].js',
+        filename: '[name].[fullhash:4].js',
     },
     resolve: {
         extensions: ['.js', '.jsx', '.tsx', '.ts'],
@@ -16,6 +16,9 @@ const webpackBaseConfig = {
             common: path.join(__dirname, '../src/common'),
             '@utils': path.join(__dirname, '../src/utils/'),
             '@components': path.join(__dirname, '../src/components/'),
+            context: path.join(__dirname, '../src/context'),
+            api: path.join(__dirname, '../src/api'),
+            store: path.join(__dirname, '../src/store'),
         },
     },
     module: {
@@ -23,14 +26,15 @@ const webpackBaseConfig = {
             {
                 test: /\.jsx?$/,
                 use: 'babel-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.tsx?$/,
                 use: {
                     loader: 'ts-loader',
-                    // options: {
-                    //     transpileOnly: true,
-                    // },
+                    options: {
+                        transpileOnly: true,
+                    },
                 },
             },
             {
