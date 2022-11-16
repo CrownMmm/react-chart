@@ -4,38 +4,36 @@ import { UserOutlined } from '@ant-design/icons';
 import MenuItem from './MenuItem';
 import './style.scss';
 
-interface IProps { }
+interface IProps {}
 
-interface IStates { }
+interface IStates {}
 
 class Header extends React.Component<IProps, IStates> {
-    state = {}
+  state = {};
 
-    render() {
-        const userName = '上古鹏';
-        return (
-            <div className="header-component-box">
-                <div className="left">
-                    <div className="logo"> </div>
-                    <div className="menu">
-                        {
-                            MENU_INDEX_CONFIG.map((menuItem, index) => (
-                                <MenuItem
-                                    menuItemInfo={menuItem}
-                                    isActive={menuItem.isActive}
-                                    key={`index-menu-item${index.toString()}`}
-                                />
-                            ))
-                        }
-                    </div>
-                </div>
-                <div className="user-info">
-                    <UserOutlined />
-                    <span className="user-name">{userName}</span>
-                </div>
-            </div>
-        );
-    }
+  render() {
+    const userName = 'zjm';
+    return (
+      <div className='header-component-box'>
+        <div className='left'>
+          <div className='logo'> </div>
+          <div className='menu'>
+            {MENU_INDEX_CONFIG.map((menuItem, index) => (
+              <MenuItem
+                menuItemInfo={menuItem}
+                isActive={menuItem.isActive}
+                key={`index-menu-item${index.toString()}`}
+              />
+            ))}
+          </div>
+        </div>
+        <div className='user-info'>
+          <UserOutlined />
+          <span className='user-name'>{userName}</span>
+        </div>
+      </div>
+    );
+  }
 }
 
 export default Header;
